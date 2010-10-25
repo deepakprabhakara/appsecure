@@ -1,0 +1,41 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: AppSecure - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating temporary file "C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP2AA.tmp" with contents
+[
+/nologo /MDd /W3 /Gm /GX /ZI /Od /I "C:\Program Files\Schlumberger\Smart Cards and Terminals\Cyberflex Access Kits\v4\Middleware Interfaces\slbiop" /I "C:\Program Files\Schlumberger\Smart Cards and Terminals\Cyberflex Access Kits\v4\Middleware Interfaces\slbscu" /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_MBCS" /D "_AFXDLL" /Fp"Debug/SimpleString.pch" /Yu"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"C:\workspace\CPP\AppSecure_Src\AppProtector.cpp"
+"C:\workspace\CPP\AppSecure_Src\AppSecure.cpp"
+"C:\workspace\CPP\AppSecure_Src\AppSecureDlg.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP2AA.tmp" 
+Creating temporary file "C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP2AB.tmp" with contents
+[
+slbiop4.lib slbscu.lib winscard.lib /nologo /subsystem:windows /incremental:yes /pdb:"Debug/AppSecure.pdb" /debug /machine:I386 /out:"Debug/AppSecure.exe" /pdbtype:sept /libpath:"C:\Program Files\Schlumberger\Smart Cards and Terminals\Cyberflex Access Kits\v4\Middleware Interfaces\slbiop\WIN2K_XP" /libpath:"C:\Program Files\Schlumberger\Smart Cards and Terminals\Cyberflex Access Kits\v4\Middleware Interfaces\slbscu" 
+.\Debug\AppProtector.obj
+.\Debug\AppSecure.obj
+.\Debug\AppSecureDlg.obj
+.\Debug\StdAfx.obj
+.\Debug\AppSecure.res
+]
+Creating command line "link.exe @C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP2AB.tmp"
+<h3>Output Window</h3>
+Compiling...
+AppProtector.cpp
+AppSecure.cpp
+AppSecureDlg.cpp
+Generating Code...
+Linking...
+
+
+
+<h3>Results</h3>
+AppSecure.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

@@ -1,0 +1,48 @@
+<html>
+<body>
+<pre>
+<h1>Build Log</h1>
+<h3>
+--------------------Configuration: Loader32 - Win32 Debug--------------------
+</h3>
+<h3>Command Lines</h3>
+Creating command line "rc.exe /l 0x409 /fo"Debug/Loader32.res" /d "_DEBUG" /d "_AFXDLL" "C:\workspace\CPP\Loader32_Src\Loader32.rc"" 
+Creating temporary file "C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP2B6.tmp" with contents
+[
+/nologo /MDd /W3 /Gm /GX /ZI /Od /I "C:\Program Files\Schlumberger\Smart Cards and Terminals\Cyberflex Access Kits\v4\Middleware Interfaces\slbiop" /I "C:\Program Files\Schlumberger\Smart Cards and Terminals\Cyberflex Access Kits\v4\Middleware Interfaces\slbscu" /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /Fp"Debug/Loader32.pch" /Yu"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"C:\workspace\CPP\Loader32_Src\Loader32.cpp"
+"C:\workspace\CPP\Loader32_Src\Loader32Dlg.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP2B6.tmp" 
+Creating temporary file "C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP2B7.tmp" with contents
+[
+/nologo /MDd /W3 /Gm /GX /ZI /Od /I "C:\Program Files\Schlumberger\Smart Cards and Terminals\Cyberflex Access Kits\v4\Middleware Interfaces\slbiop" /I "C:\Program Files\Schlumberger\Smart Cards and Terminals\Cyberflex Access Kits\v4\Middleware Interfaces\slbscu" /D "WIN32" /D "_DEBUG" /D "_WINDOWS" /D "_AFXDLL" /D "_MBCS" /Fp"Debug/Loader32.pch" /Yc"stdafx.h" /Fo"Debug/" /Fd"Debug/" /FD /GZ /c 
+"C:\workspace\CPP\Loader32_Src\StdAfx.cpp"
+]
+Creating command line "cl.exe @C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP2B7.tmp" 
+Creating temporary file "C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP2B8.tmp" with contents
+[
+slbiop4.lib slbscu.lib winscard.lib /nologo /subsystem:windows /incremental:yes /pdb:"Debug/Loader32.pdb" /debug /machine:I386 /out:"Debug/Loader32.exe" /pdbtype:sept /libpath:"C:\Program Files\Schlumberger\Smart Cards and Terminals\Cyberflex Access Kits\v4\Middleware Interfaces\slbiop\WIN2K_XP" /libpath:"C:\Program Files\Schlumberger\Smart Cards and Terminals\Cyberflex Access Kits\v4\Middleware Interfaces\slbscu" 
+.\Debug\Loader32.obj
+.\Debug\Loader32Dlg.obj
+.\Debug\StdAfx.obj
+.\Debug\Loader32.res
+]
+Creating command line "link.exe @C:\DOCUME~1\ADMINI~1\LOCALS~1\Temp\RSP2B8.tmp"
+<h3>Output Window</h3>
+Compiling resources...
+Compiling...
+StdAfx.cpp
+Compiling...
+Loader32.cpp
+Loader32Dlg.cpp
+Generating Code...
+Linking...
+
+
+
+<h3>Results</h3>
+Loader32.exe - 0 error(s), 0 warning(s)
+</pre>
+</body>
+</html>

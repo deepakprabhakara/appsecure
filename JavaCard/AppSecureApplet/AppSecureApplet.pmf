@@ -1,0 +1,12 @@
+[PRGMAker]
+Package=AppSecureApplet
+PackageAID=01020304050607
+PRGFilename=AppSecureApplet
+OutputDir=C:\workspace\Java\AppSecureApplet
+ExportDir=C:\Program Files\Schlumberger\Smart Cards and Terminals\Cyberflex Access Kits\v4\ToolKit\PRGMaker\Export Files
+Version=1.0
+ClassDir=C:\workspace\Java\AppSecureApplet
+[Applets]
+NumApplets=1
+Applet1=AppSecureApplet.class
+Applet1AID=010203040506

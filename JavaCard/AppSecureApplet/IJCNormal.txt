@@ -1,0 +1,43 @@
+
+Schlumberger Java Card 2.1 IJC Generator
+Processing manisfest file...
+
+		Method	Refloc	CPool	Descr	Total
+Original:	580	81	146	312	782
+Transformed:	560	81	146	312	762
+
+C1 - extracting : AppSecureApplet/javacard/Header.cap Size = 20
+C2 - extracting : AppSecureApplet/javacard/Directory.cap Size = 34
+C3 - extracting : AppSecureApplet/javacard/Import.cap Size = 24
+C4 - extracting : AppSecureApplet/javacard/Applet.cap Size = 13
+C5 - extracting : AppSecureApplet/javacard/Class.cap Size = 17
+C6 - extracting : AppSecureApplet/javacard/Method.cap Size = 563
+C7 - extracting : AppSecureApplet/javacard/StaticField.cap Size = 14
+C8 - extracting : Export.cap not present
+C9 - extracting : ExportDescriptor.cap not present
+C10 - extracting : AppSecureApplet/javacard/ConstantPool.cap Size = 149
+C11 - extracting : AppSecureApplet/javacard/RefLocation.cap Size = 84
+C12 - extracting : AppSecureApplet/javacard/Descriptor.cap Size = 315
+
+-- Place jar/cap components in onCardVerifier order in a binary file --
+
+Cap File Statistics (in bytes)
+
+	Total     size: 1233 (what will get loaded into our card)
+	Link-info size: 548 (linking info that can be discarded after linking)
+	Post-link size: 685 (resident image if we discard linking info)
+
+	Number of Applets in Cap file = 1
+	Number of packages imported = 2
+	Static field image size = 1
+	Number of preinitialized arrays = 0
+	Space needed for static data = 1
+
+Load File Statistics (in bytes)
+
+	Non-volatile memory space required for package loading (C6 Tag) = 1234
+
+
+generated file = C:\WORKSP~1\Java\APPSEC~1\APPSEC~1\javacard\AppSecureApplet.ijc (ready for on card verifier) 
+
+ijc generation status: success

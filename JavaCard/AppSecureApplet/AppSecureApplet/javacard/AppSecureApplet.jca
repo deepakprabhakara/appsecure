@@ -1,0 +1,555 @@
+// converted by version 1.3
+// on Sat Mar 13 20:53:53 GMT+08:00 2004
+
+.package AppSecureApplet {
+	.aid 0x1:0x2:0x3:0x4:0x5:0x6:0x7;
+	.version 1.0;
+
+	.imports {
+		0xA0:0x0:0x0:0x0:0x62:0x1:0x1 1.0;		//javacard/framework
+		0xA0:0x0:0x0:0x0:0x62:0x1:0x2 1.1;		//javacard/security
+	}
+
+	.applet {
+		0x1:0x2:0x3:0x4:0x5:0x6 AppSecureApplet;
+	}
+
+	.constantPool {
+		// 0
+		instanceFieldRef byte[] AppSecureApplet/TheBuffer;
+		// 1
+		instanceFieldRef 0.9 AppSecureApplet/pin;
+		// 2
+		instanceFieldRef byte AppSecureApplet/license_count;
+		// 3
+		instanceFieldRef 1.10 AppSecureApplet/key;
+		// 4
+		instanceFieldRef 1.15 AppSecureApplet/signature;
+		// 5
+		instanceFieldRef boolean AppSecureApplet/payperuse;
+		// 6
+		classRef 0.9;		// javacard/framework/OwnerPIN
+		// 7
+		staticMethodRef 1.13.0(BSZ)Ljavacard/security/Key;;		// javacard/security/KeyBuilder.buildKey(BSZ)Ljavacard/security/Key;
+			.descriptor	Ljavacard/security/Key;	1.0;
+
+		// 8
+		classRef 1.10;		// javacard/security/DESKey
+		// 9
+		staticMethodRef 0.9.0(BB)V;		// javacard/framework/OwnerPIN.<init>(BB)V
+		// 10
+		staticMethodRef 1.15.0(BZ)Ljavacard/security/Signature;;		// javacard/security/Signature.getInstance(BZ)Ljavacard/security/Signature;
+			.descriptor	Ljavacard/security/Signature;	1.15;
+
+		// 11
+		staticMethodRef 0.3.0()V;		// javacard/framework/Applet.<init>()V
+		// 12
+		virtualMethodRef 1.15.3(Ljavacard/security/Key;B)V;		// javacard/security/Signature.init(Ljavacard/security/Key;B)V
+			.descriptor	Ljavacard/security/Key;	1.0;
+
+		// 13
+		virtualMethodRef 0.3.1()V;		// javacard/framework/Applet.register()V
+		// 14
+		virtualMethodRef 0.3.2([BSB)V;		// javacard/framework/Applet.register([BSB)V
+		// 15
+		classRef AppSecureApplet;
+		// 16
+		staticMethodRef AppSecureApplet/<init>([BSB)V;
+		// 17
+		virtualMethodRef 0.9.5()V;		// javacard/framework/OwnerPIN.reset()V
+		// 18
+		virtualMethodRef 0.10.1()[B;		// javacard/framework/APDU.getBuffer()[B
+		// 19
+		virtualMethodRef 0.3.3()Z;		// javacard/framework/Applet.selectingApplet()Z
+		// 20
+		staticMethodRef 0.7.1(S)V;		// javacard/framework/ISOException.throwIt(S)V
+		// 21
+		staticMethodRef AppSecureApplet/StoreCodeSection(Ljavacard/framework/APDU;)V;
+			.descriptor	Ljavacard/framework/APDU;	0.10;
+
+		// 22
+		staticMethodRef AppSecureApplet/RetrieveCodeSection(Ljavacard/framework/APDU;)V;
+			.descriptor	Ljavacard/framework/APDU;	0.10;
+
+		// 23
+		staticMethodRef AppSecureApplet/loadlicense(Ljavacard/framework/APDU;)V;
+			.descriptor	Ljavacard/framework/APDU;	0.10;
+
+		// 24
+		staticMethodRef AppSecureApplet/validate(Ljavacard/framework/APDU;)V;
+			.descriptor	Ljavacard/framework/APDU;	0.10;
+
+		// 25
+		staticMethodRef AppSecureApplet/encrypt(Ljavacard/framework/APDU;)V;
+			.descriptor	Ljavacard/framework/APDU;	0.10;
+
+		// 26
+		staticMethodRef AppSecureApplet/PinChange(Ljavacard/framework/APDU;)V;
+			.descriptor	Ljavacard/framework/APDU;	0.10;
+
+		// 27
+		virtualMethodRef 0.10.6()S;		// javacard/framework/APDU.setIncomingAndReceive()S
+		// 28
+		virtualMethodRef 0.9.4()Z;		// javacard/framework/OwnerPIN.isValidated()Z
+		// 29
+		virtualMethodRef 0.9.8([BSB)V;		// javacard/framework/OwnerPIN.update([BSB)V
+		// 30
+		virtualMethodRef 0.10.7()S;		// javacard/framework/APDU.setOutgoing()S
+		// 31
+		virtualMethodRef 0.10.9(S)V;		// javacard/framework/APDU.setOutgoingLength(S)V
+		// 32
+		virtualMethodRef 0.10.4(SS)V;		// javacard/framework/APDU.sendBytes(SS)V
+		// 33
+		virtualMethodRef 0.9.1([BSB)Z;		// javacard/framework/OwnerPIN.check([BSB)Z
+		// 34
+		virtualMethodRef 1.15.5([BSS[BS)S;		// javacard/security/Signature.sign([BSS[BS)S
+		// 35
+		virtualMethodRef 0.10.8(SS)V;		// javacard/framework/APDU.setOutgoingAndSend(SS)V
+	}
+
+	.class public AppSecureApplet 0 extends 0.3 {		// extends javacard/framework/Applet
+
+		.fields {
+			 byte[] TheBuffer 0;		// [B
+			 0.9 pin 1;		// Ljavacard/framework/OwnerPIN;
+			 1.10 key 2;		// Ljavacard/security/DESKey;
+			 1.15 signature 3;		// Ljavacard/security/Signature;
+			 boolean payperuse 4;		// Z
+			 byte license_count 5;		// B
+			static final byte AppSecureApplet_CLA = -123;		// B
+			static final byte SET = 16;		// B
+			static final byte GET = 32;		// B
+			static final byte SELECT = -92;		// B
+			static final byte LOADLICENSE = 48;		// B
+			static final byte Validate = 64;		// B
+			static final byte Encrypt = 80;		// B
+			static final byte PinChange = 96;		// B
+			static final byte PinTryLimit = 3;		// B
+			static final byte MaxPinSize = 4;		// B
+			static final short SW_LICENSE_EXPIRED = 26896;		// S
+			static final short SW_WRONG_PIN = 25344;		// S
+			static byte base_count = 32;		// B
+		}
+
+		.publicMethodTable 6 {
+			equals(Ljava/lang/Object;)Z;
+			register()V;
+			register([BSB)V;
+			selectingApplet()Z;
+			deselect()V;
+			getShareableInterfaceObject(Ljavacard/framework/AID;B)Ljavacard/framework/Shareable;;
+			select()Z;
+			process(Ljavacard/framework/APDU;)V;
+		}
+
+		.packageMethodTable 0 {
+		}
+
+		.method private <init>([BSB)V {
+			.stack 5;
+			.locals 1;
+
+				L0:	aload_0;
+					invokespecial 11;		// javacard/framework/Applet.<init>()V
+					aload_0;
+					bspush 100;
+					newarray 11;
+					putfield_a 0;		// reference AppSecureApplet/AppSecureApplet.TheBuffer
+					aload_0;
+					new 6;		// javacard/framework/OwnerPIN
+					dup;
+					sconst_3;
+					sconst_4;
+					invokespecial 9;		// javacard/framework/OwnerPIN.<init>(BB)V
+					putfield_a 1;		// reference AppSecureApplet/AppSecureApplet.pin
+					sconst_4;
+					newarray 11;
+					dup;
+					sconst_0;
+					sconst_0;
+					bastore;
+					dup;
+					sconst_1;
+					sconst_1;
+					bastore;
+					dup;
+					sconst_2;
+					bspush 9;
+					bastore;
+					dup;
+					sconst_3;
+					sconst_5;
+					bastore;
+					astore 4;
+					getfield_a_this 1;		// reference AppSecureApplet/AppSecureApplet.pin
+					aload 4;
+					sconst_0;
+					sconst_4;
+					invokevirtual 29;		// javacard/framework/OwnerPIN.update([BSB)V
+					aload_0;
+					sconst_0;
+					putfield_b 2;		// byte AppSecureApplet/AppSecureApplet.license_count
+					aload_0;
+					sconst_1;
+					bspush 64;
+					sconst_0;
+					invokestatic 7;		// javacard/security/KeyBuilder.buildKey(BSZ)Ljavacard/security/Key;
+					checkcast 0 8;		// T_CLASSORINTERFACE javacard/security/DESKey
+					putfield_a 3;		// reference AppSecureApplet/AppSecureApplet.key
+					aload_0;
+					sconst_4;
+					sconst_0;
+					invokestatic 10;		// javacard/security/Signature.getInstance(BZ)Ljavacard/security/Signature;
+					putfield_a 4;		// reference AppSecureApplet/AppSecureApplet.signature
+					getfield_a_this 4;		// reference AppSecureApplet/AppSecureApplet.signature
+					getfield_a_this 3;		// reference AppSecureApplet/AppSecureApplet.key
+					sconst_1;
+					invokevirtual 12;		// javacard/security/Signature.init(Ljavacard/security/Key;B)V
+					aload_1;
+					sload_2;
+					baload;
+					ifne L2;
+				L1:	aload_0;
+					invokevirtual 13;		// javacard/framework/Applet.register()V
+					goto L3;
+				L2:	aload_0;
+					aload_1;
+					sload_2;
+					sconst_1;
+					sadd;
+					aload_1;
+					sload_2;
+					baload;
+					invokevirtual 14;		// javacard/framework/Applet.register([BSB)V
+				L3:	return;
+		}
+
+		.method public static install([BSB)V 0 {
+			.stack 5;
+			.locals 0;
+
+				L0:	new 15;		// AppSecureApplet/AppSecureApplet
+					dup;
+					aload_0;
+					sload_1;
+					sload_2;
+					invokespecial 16;		// AppSecureApplet/AppSecureApplet.<init>([BSB)V
+					pop;
+					return;
+		}
+
+		.method public select()Z 6 {
+			.stack 1;
+			.locals 0;
+
+				L0:	getfield_a_this 1;		// reference AppSecureApplet/AppSecureApplet.pin
+					invokevirtual 17;		// javacard/framework/OwnerPIN.reset()V
+					sconst_1;
+					sreturn;
+		}
+
+		.method public process(Ljavacard/framework/APDU;)V 7 {
+			.stack 2;
+			.locals 2;
+
+			.descriptor	Ljavacard/framework/APDU;	0.10;
+
+				L0:	aload_1;
+					invokevirtual 18;		// javacard/framework/APDU.getBuffer()[B
+					astore_2;
+					aload_0;
+					invokevirtual 19;		// javacard/framework/Applet.selectingApplet()Z
+					ifeq L2;
+				L1:	sspush -28672;
+					invokestatic 20;		// javacard/framework/ISOException.throwIt(S)V
+				L2:	aload_2;
+					sconst_0;
+					baload;
+					bspush -123;
+					if_scmpeq L4;
+				L3:	sspush 28160;
+					invokestatic 20;		// javacard/framework/ISOException.throwIt(S)V
+				L4:	aload_2;
+					sconst_1;
+					baload;
+					sstore_3;
+					sload_3;
+					slookupswitch L11 6 16 L5 32 L6 48 L7 64 L8 80 L9 96 L10;
+				L5:	aload_0;
+					aload_1;
+					invokespecial 21;		// AppSecureApplet/AppSecureApplet.StoreCodeSection(Ljavacard/framework/APDU;)V
+					goto L12;
+				L6:	aload_0;
+					aload_1;
+					invokespecial 22;		// AppSecureApplet/AppSecureApplet.RetrieveCodeSection(Ljavacard/framework/APDU;)V
+					goto L12;
+				L7:	aload_0;
+					aload_1;
+					invokespecial 23;		// AppSecureApplet/AppSecureApplet.loadlicense(Ljavacard/framework/APDU;)V
+					goto L12;
+				L8:	aload_0;
+					aload_1;
+					invokespecial 24;		// AppSecureApplet/AppSecureApplet.validate(Ljavacard/framework/APDU;)V
+					goto L12;
+				L9:	aload_0;
+					aload_1;
+					invokespecial 25;		// AppSecureApplet/AppSecureApplet.encrypt(Ljavacard/framework/APDU;)V
+					goto L12;
+				L10:	aload_0;
+					aload_1;
+					invokespecial 26;		// AppSecureApplet/AppSecureApplet.PinChange(Ljavacard/framework/APDU;)V
+					goto L12;
+				L11:	sspush 27904;
+					invokestatic 20;		// javacard/framework/ISOException.throwIt(S)V
+				L12:	return;
+		}
+
+		.method private StoreCodeSection(Ljavacard/framework/APDU;)V {
+			.stack 5;
+			.locals 3;
+
+			.descriptor	Ljavacard/framework/APDU;	0.10;
+
+				L0:	aload_1;
+					invokevirtual 18;		// javacard/framework/APDU.getBuffer()[B
+					astore_2;
+					aload_1;
+					invokevirtual 27;		// javacard/framework/APDU.setIncomingAndReceive()S
+					s2b;
+					sstore_3;
+					sconst_0;
+					sstore 4;
+					goto L2;
+				L1:	getfield_a_this 0;		// reference AppSecureApplet/AppSecureApplet.TheBuffer
+					sload 4;
+					aload_2;
+					sconst_5;
+					sload 4;
+					sadd;
+					s2b;
+					baload;
+					bastore;
+					sload 4;
+					sconst_1;
+					sadd;
+					s2b;
+					sstore 4;
+				L2:	sload 4;
+					bspush 100;
+					if_scmplt L1;
+				L3:	return;
+		}
+
+		.method private RetrieveCodeSection(Ljavacard/framework/APDU;)V {
+			.stack 4;
+			.locals 3;
+
+			.descriptor	Ljavacard/framework/APDU;	0.10;
+
+				L0:	aload_1;
+					invokevirtual 18;		// javacard/framework/APDU.getBuffer()[B
+					astore_2;
+					getfield_a_this 1;		// reference AppSecureApplet/AppSecureApplet.pin
+					invokevirtual 28;		// javacard/framework/OwnerPIN.isValidated()Z
+					ifne L2;
+				L1:	sspush 27010;
+					invokestatic 20;		// javacard/framework/ISOException.throwIt(S)V
+				L2:	getfield_b_this 5;		// boolean AppSecureApplet/AppSecureApplet.payperuse
+					sconst_1;
+					if_scmpne L6;
+				L3:	getfield_b_this 2;		// byte AppSecureApplet/AppSecureApplet.license_count
+					sconst_1;
+					ssub;
+					s2b;
+					bspush -127;
+					if_scmpge L5;
+				L4:	sspush 26896;
+					invokestatic 20;		// javacard/framework/ISOException.throwIt(S)V
+				L5:	aload_0;
+					getfield_b_this 2;		// byte AppSecureApplet/AppSecureApplet.license_count
+					sconst_1;
+					ssub;
+					s2b;
+					putfield_b 2;		// byte AppSecureApplet/AppSecureApplet.license_count
+				L6:	aload_2;
+					sconst_4;
+					baload;
+					sstore_3;
+					aload_1;
+					invokevirtual 30;		// javacard/framework/APDU.setOutgoing()S
+					pop;
+					aload_1;
+					bspush 100;
+					invokevirtual 31;		// javacard/framework/APDU.setOutgoingLength(S)V
+					sconst_0;
+					sstore 4;
+					goto L8;
+				L7:	aload_2;
+					sload 4;
+					getfield_a_this 0;		// reference AppSecureApplet/AppSecureApplet.TheBuffer
+					sload 4;
+					baload;
+					bastore;
+					sload 4;
+					sconst_1;
+					sadd;
+					s2b;
+					sstore 4;
+				L8:	sload 4;
+					bspush 100;
+					if_scmplt L7;
+				L9:	aload_1;
+					sconst_0;
+					bspush 100;
+					invokevirtual 32;		// javacard/framework/APDU.sendBytes(SS)V
+					return;
+		}
+
+		.method private loadlicense(Ljavacard/framework/APDU;)V {
+			.stack 3;
+			.locals 2;
+
+			.descriptor	Ljavacard/framework/APDU;	0.10;
+
+				L0:	aload_1;
+					invokevirtual 18;		// javacard/framework/APDU.getBuffer()[B
+					astore_2;
+					getfield_a_this 1;		// reference AppSecureApplet/AppSecureApplet.pin
+					invokevirtual 28;		// javacard/framework/OwnerPIN.isValidated()Z
+					ifne L2;
+				L1:	sspush 27010;
+					invokestatic 20;		// javacard/framework/ISOException.throwIt(S)V
+				L2:	aload_1;
+					invokevirtual 27;		// javacard/framework/APDU.setIncomingAndReceive()S
+					s2b;
+					sstore_3;
+					sload_3;
+					sconst_1;
+					if_scmpeq L4;
+				L3:	sspush 26368;
+					invokestatic 20;		// javacard/framework/ISOException.throwIt(S)V
+				L4:	aload_0;
+					aload_2;
+					sconst_5;
+					baload;
+					putfield_b 2;		// byte AppSecureApplet/AppSecureApplet.license_count
+					getfield_b_this 2;		// byte AppSecureApplet/AppSecureApplet.license_count
+					bspush -127;
+					if_scmpne L6;
+				L5:	aload_0;
+					sconst_0;
+					putfield_b 5;		// boolean AppSecureApplet/AppSecureApplet.payperuse
+					goto L7;
+				L6:	aload_0;
+					sconst_1;
+					putfield_b 5;		// boolean AppSecureApplet/AppSecureApplet.payperuse
+				L7:	return;
+		}
+
+		.method private validate(Ljavacard/framework/APDU;)V {
+			.stack 4;
+			.locals 2;
+
+			.descriptor	Ljavacard/framework/APDU;	0.10;
+
+				L0:	aload_1;
+					invokevirtual 18;		// javacard/framework/APDU.getBuffer()[B
+					astore_2;
+					aload_1;
+					invokevirtual 27;		// javacard/framework/APDU.setIncomingAndReceive()S
+					s2b;
+					sstore_3;
+					getfield_a_this 1;		// reference AppSecureApplet/AppSecureApplet.pin
+					aload_2;
+					sconst_5;
+					sload_3;
+					invokevirtual 33;		// javacard/framework/OwnerPIN.check([BSB)Z
+					ifne L2;
+				L1:	sspush 25344;
+					invokestatic 20;		// javacard/framework/ISOException.throwIt(S)V
+				L2:	getfield_a_this 3;		// reference AppSecureApplet/AppSecureApplet.key
+					aload_2;
+					sconst_0;
+					invokeinterface 3 8 5;		// javacard/security/DESKey
+					return;
+		}
+
+		.method private encrypt(Ljavacard/framework/APDU;)V {
+			.stack 6;
+			.locals 2;
+
+			.descriptor	Ljavacard/framework/APDU;	0.10;
+
+				L0:	aload_1;
+					invokevirtual 18;		// javacard/framework/APDU.getBuffer()[B
+					astore_2;
+					getfield_a_this 1;		// reference AppSecureApplet/AppSecureApplet.pin
+					invokevirtual 28;		// javacard/framework/OwnerPIN.isValidated()Z
+					ifne L2;
+				L1:	sspush 27010;
+					invokestatic 20;		// javacard/framework/ISOException.throwIt(S)V
+				L2:	aload_1;
+					invokevirtual 27;		// javacard/framework/APDU.setIncomingAndReceive()S
+					sstore_3;
+					getfield_a_this 4;		// reference AppSecureApplet/AppSecureApplet.signature
+					aload_2;
+					sconst_5;
+					sload_3;
+					aload_2;
+					sconst_0;
+					invokevirtual 34;		// javacard/security/Signature.sign([BSS[BS)S
+					pop;
+					aload_1;
+					sconst_0;
+					bspush 8;
+					invokevirtual 35;		// javacard/framework/APDU.setOutgoingAndSend(SS)V
+					return;
+		}
+
+		.method private PinChange(Ljavacard/framework/APDU;)V {
+			.stack 5;
+			.locals 2;
+
+			.descriptor	Ljavacard/framework/APDU;	0.10;
+
+				L0:	aload_1;
+					invokevirtual 18;		// javacard/framework/APDU.getBuffer()[B
+					astore_2;
+					sconst_4;
+					newarray 11;
+					dup;
+					sconst_0;
+					aload_2;
+					sconst_2;
+					baload;
+					bastore;
+					dup;
+					sconst_1;
+					aload_2;
+					sconst_2;
+					baload;
+					bastore;
+					dup;
+					sconst_2;
+					aload_2;
+					sconst_2;
+					baload;
+					bastore;
+					dup;
+					sconst_3;
+					aload_2;
+					sconst_2;
+					baload;
+					bastore;
+					astore_3;
+					getfield_a_this 1;		// reference AppSecureApplet/AppSecureApplet.pin
+					aload_3;
+					sconst_0;
+					sconst_4;
+					invokevirtual 29;		// javacard/framework/OwnerPIN.update([BSB)V
+					return;
+		}
+
+	}
+
+}
